@@ -1,0 +1,86 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Home";
+    ViewData["SessionUser"] = Model.Username;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card l-form" id="l-form">
+        <div class="loader-overlay"></div>
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <div class="row ">
+                <div class="col-4"><h3 class="pt-4">My Appointment List</h3></div>
+                <div class="col-4 float-right">
+                    <label><b>Select Date</b></label><div class="input-group date">
+                        <input type="date" class="form-control pc-timepicker-1 " id="Scheduled-Start-Date-Filter" onchange="AppointmentHistoryFilter()">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="feather icon-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                sadasd
+                <div class="col-4">
+                    <label class="ml-2"><b>Select Appointment Status</b></label>
+                    <select class="pc-selectpicker form-control" id="appointment-filter" onchange="AppointmentHistoryFilter()">
+                        <optgroup label="Randevu Durumu Seçin">
+                            <option value="0">Tümü</option>
+                            <option value="">Görüşüldü</option>
+                            <option value="">Bekliyor</option>
+                            <option value="">İptal Edildi</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div id="appointment-history" class="mt-3">
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+        $(document).ready(function () {
+            AppointmentHistory();
+            $("#start_page_panel").click();
+        });
+        function AppointmentHistory() {
+
+            $.post("/Appointment/AppointmentListByUserViewComponent",  function (data) {
+                $("#appointment-history").html(data);
+            });
+        };
+
+        function AppointmentHistoryFilter() {
+             $.ajax({
+                type: "POST",
+                url: '@Url.Action("AppointmentListByUserViewComponent", "Appointment")',
+                 data: {
+                    time: $("#Scheduled-Start-Date-Filter").val(),
+                    statusId: $("#appointment-filter").val()
+                 },
+                success: function (data) {
+                    if (data!=null) {
+                    $("#appointment-history").html(data);
+                 }
+                },
+                error: function () {
+                    toastr.success("Randevu İşlemi Gerçekleşirken bir hata oluştu ! ");
+                }
+            });
+        }
+</script>
+
+
+
+
