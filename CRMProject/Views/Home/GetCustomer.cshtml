@@ -1,7 +1,8 @@
-﻿@model List<Customer>
+﻿@model CustomerUserModel
 
 @{
     ViewData["Title"] = "GetCustomer";
+    ViewData["SessionUser"] = Model.User.Username;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -22,7 +23,7 @@
             <th>Personel</th>
         </tr>
     </thead>
-    @foreach (var item in Model)
+    @foreach (var item in Model.CustomerList)
     {
         <tbody>
             <tr>

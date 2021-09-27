@@ -46,47 +46,44 @@ namespace CRMProject.Controllers
         [HttpGet]
         public IActionResult GetCustomer()
         {
-            //var data = context.Customer.Include(x => x.User).ToList();
-
+            CustomerUserModel customerUserModel = new();
+            User user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
             List<Customer> customerList = customerServices.GetAllCustomer();
+            customerUserModel.CustomerList = customerList;
+            customerUserModel.User = user;
 
-            return View(model: customerList);
-        }
-
-        [HttpPost]
-        public IActionResult GetCustomer(Customer customer)
-        {
-            return View();
+            return View(model: customerUserModel);
         }
 
         [HttpGet]
         public IActionResult CustomerDetails(int id)
         {
-            CustomerUserListModel customerUserListModel = new();
-            Customer customer = customerServices.GetCustomerById(id);
+            CustomerUserModel customerUserModel = new();
+            customerUserModel.Customer = customerServices.GetCustomerById(id);
+            customerUserModel.UserList = userServices.GetAllUser();
+            customerUserModel.User = userServices.GetUserById((int)customerUserModel.Customer.UserId);
+            customerUserModel.AccountUser = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
 
-            customerUserListModel.customer = customer;
-            customerUserListModel.userList = userServices.GetAllUser();
-
-            User user = userServices.GetUserById((int)customer.UserId);
-            customerUserListModel.customersUserName = user.Username;
-            customerUserListModel.customersUserId = user.Id;
-            return View(model: customerUserListModel);
+            return View(model: customerUserModel);
         }
 
         [HttpPost]
-        public bool CustomerDetails(int id, string userName, string email, string title, string city, string companyName, int customerUserID)
+        public bool CustomerDetails(Customer _customer)
         {
-            Customer customer = customerServices.GetCustomerById(id);
-            customer.FirstName = userName;
-            customer.Email = email;
-            customer.JobTitle = title;
-            customer.City = city;
-            customer.CompanyName = companyName;
-            customer.UserId = (userServices.GetUserById(customerUserID)).Id;
+            Customer customer = new();
+            customer = customerServices.GetCustomerById(_customer.Id);
+
+            customer.FirstName = _customer.FirstName;
+            customer.Email = _customer.Email;
+            customer.JobTitle = _customer.JobTitle;
+            customer.City = _customer.City;
+            customer.CompanyName = _customer.CompanyName;
+            customer.UserId = _customer.UserId;
+
             customerServices.UpdateCustomer(customer);
             return true;
         }
+
 
         public IActionResult Privacy()
         {
