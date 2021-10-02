@@ -11,6 +11,7 @@ namespace DAL.EntityBusiness
     {
         CrmsystemContext context = new CrmsystemContext();
 
+
         public UserRepository(CrmsystemContext _context)
         {
             context = _context;
@@ -42,7 +43,17 @@ namespace DAL.EntityBusiness
 
         public User GetUserByName(string userName)
         {
-            return context.User.FirstOrDefault(x=> x.Username == userName);
+            return context.User.FirstOrDefault(x => x.Username == userName);
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            User _email = context.User.FirstOrDefault(x => x.Email == email);
+            if (_email != null)
+            {
+                return _email;
+            }
+            return null;
         }
 
         public User UpdateUser(User user)
@@ -54,13 +65,14 @@ namespace DAL.EntityBusiness
 
         public User UserLogin(User user)
         {
-            User _user = context.User.FirstOrDefault(x=>x.Username == user.Username && x.Password == user.Password);
+            User _user = context.User.FirstOrDefault(x => x.Username == user.Username && x.Password == user.Password);
             if (_user != null)
             {
                 return user;
             }
             return null;
-            
+
         }
+
     }
 }

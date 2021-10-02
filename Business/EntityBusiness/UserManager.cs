@@ -18,6 +18,10 @@ namespace Business.EntityBusiness
         {
             return userRepository.CreateUser(user);
         }
+        public User GetUserByEmail(string email)
+        {
+            return userRepository.GetUserByEmail(email);
+        }
 
         public void DeleteUser(int id)
         {

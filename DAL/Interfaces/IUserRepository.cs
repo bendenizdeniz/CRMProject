@@ -10,6 +10,7 @@ namespace DAL.Interfaces
         List<User> GetAllUsers();
 
         User GetUserById(int id);
+        User GetUserByEmail(string email);
 
         User CreateUser(User user);
 

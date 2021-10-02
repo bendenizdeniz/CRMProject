@@ -11,6 +11,8 @@ namespace Business.Interfaces
 
         User GetUserById(int id);
 
+        User GetUserByEmail(string email);
+
         User UpdateUser(User user);
 
         void DeleteUser(int id);
