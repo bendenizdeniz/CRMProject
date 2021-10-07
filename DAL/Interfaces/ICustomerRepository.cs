@@ -11,6 +11,8 @@ namespace DAL.Interfaces
 
         Customer GetCustomerById(int id);
 
+        Customer GetCustomerByName(string name);
+
         Customer CreateCustomer(Customer customer);
 
         Customer UpdateCustomer(Customer customer);

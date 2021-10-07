@@ -8,6 +8,11 @@ namespace Entity
 {
     public partial class Customer
     {
+        public Customer()
+        {
+            Appointment = new HashSet<Appointment>();
+        }
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }
@@ -17,5 +22,6 @@ namespace Entity
         public int? UserId { get; set; }
 
         public virtual User User { get; set; }
+        public virtual ICollection<Appointment> Appointment { get; set; }
     }
 }

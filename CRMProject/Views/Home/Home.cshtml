@@ -24,15 +24,14 @@
                         </div>
                     </div>
                 </div>
-                sadasd
                 <div class="col-4">
                     <label class="ml-2"><b>Select Appointment Status</b></label>
                     <select class="pc-selectpicker form-control" id="appointment-filter" onchange="AppointmentHistoryFilter()">
-                        <optgroup label="Randevu Durumu Seçin">
-                            <option value="0">Tümü</option>
-                            <option value="">Görüşüldü</option>
-                            <option value="">Bekliyor</option>
-                            <option value="">İptal Edildi</option>
+                        <optgroup label="Select Appointment's' Status">
+                            <option value="0">All Of Them</option>
+                            <option value="1">Discussed</option>
+                            <option value="2">Waiting</option>
+                            <option value="3">Cancelled</option>
                         </optgroup>
                     </select>
                 </div>
@@ -44,12 +43,10 @@
 
 
         </div>
-
     </div>
 </div>
 
 <script>
-
         $(document).ready(function () {
             AppointmentHistory();
             $("#start_page_panel").click();

@@ -1,10 +1,8 @@
 ﻿using DAL.Interfaces;
 using Entity;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DAL.EntityBusiness
 {
@@ -39,6 +37,11 @@ namespace DAL.EntityBusiness
         public Customer GetCustomerById(int id)
         {
             return context.Customer.Find(id);
+        }
+
+        public Customer GetCustomerByName(string name)
+        {
+            return context.Customer.FirstOrDefault(x => x.FirstName == name);
         }
 
         public Customer UpdateCustomer(Customer customer)

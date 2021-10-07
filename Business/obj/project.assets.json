@@ -5738,35 +5738,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KaanB\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\deniz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\Business\\Business.csproj",
-      "packagesPath": "C:\\Users\\KaanB\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\Business\\obj\\",
+      "projectPath": "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\Business\\Business.csproj",
+      "packagesPath": "C:\\Users\\deniz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\Business\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\KaanB\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\deniz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5774,11 +5764,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\DAL\\DAL.csproj"
+            "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\KaanB\\Documents\\GitHub\\CRMProject\\Entity\\Entity.csproj"
+            "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\Entity\\Entity.csproj": {
+              "projectPath": "C:\\Users\\deniz\\source\\repos\\CRMProjectClone\\CRMProject.sln\\Entity\\Entity.csproj"
             }
           }
         }

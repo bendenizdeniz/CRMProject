@@ -35,6 +35,9 @@ namespace CRMProject
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddScoped<IAppointmentService, AppointmentManager>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
             services.AddControllersWithViews();
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(5));
 

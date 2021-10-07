@@ -18,7 +18,6 @@ namespace Entity
         {
         }
 
-        public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Appointment> Appointment { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -27,34 +26,29 @@ namespace Entity
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Turkish_CI_AS");
 
-            modelBuilder.Entity<Admin>(entity =>
-            {
-                entity.Property(e => e.AdminId).HasColumnName("AdminID");
-
-                entity.Property(e => e.Email).HasMaxLength(50);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.Username).HasMaxLength(50);
-            });
-
             modelBuilder.Entity<Appointment>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.ActualDate).HasColumnType("date");
 
-                entity.Property(e => e.CustomerId)
-                    .HasMaxLength(200)
+                entity.Property(e => e.ActualTime)
+                    .HasMaxLength(25)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.ScheduledDate).HasColumnType("date");
 
-                entity.Property(e => e.Status)
-                    .HasMaxLength(50)
+                entity.Property(e => e.ScheduledTime)
+                    .HasMaxLength(25)
                     .IsUnicode(false);
 
-                entity.Property(e => e.UserId)
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Appointment)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Appointment_Customer");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Appointment)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_Appointment_User1");
             });
 
             modelBuilder.Entity<Customer>(entity =>

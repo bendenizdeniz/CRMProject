@@ -9,9 +9,15 @@ namespace Entity
     public partial class Appointment
     {
         public int Id { get; set; }
-        public string CustomerId { get; set; }
-        public string UserId { get; set; }
-        public DateTime? Date { get; set; }
-        public string Status { get; set; }
+        public int? CustomerId { get; set; }
+        public int? UserId { get; set; }
+        public DateTime? ScheduledDate { get; set; }
+        public DateTime? ActualDate { get; set; }
+        public string ScheduledTime { get; set; }
+        public string ActualTime { get; set; }
+        public byte? Status { get; set; }
+
+        public virtual Customer Customer { get; set; }
+        public virtual User User { get; set; }
     }
 }

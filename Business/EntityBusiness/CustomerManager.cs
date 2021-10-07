@@ -36,6 +36,11 @@ namespace Business.EntityBusiness
             return customerRepository.GetCustomerById(id);
         }
 
+        public Customer GetCustomerByName(string name)
+        {
+            return customerRepository.GetCustomerByName(name);
+        }
+
         public Customer UpdateCustomer(Customer customer)
         {
             return customerRepository.UpdateCustomer(customer);

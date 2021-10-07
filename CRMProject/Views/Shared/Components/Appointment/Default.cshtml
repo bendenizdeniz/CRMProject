@@ -1,0 +1,84 @@
+﻿@model List<Appointment>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Appointment Start Date</th>
+            <th>Appointment Start Time</th>
+            <th>User </th>
+            <th>Customer </th>
+            <th>Customer Type</th>
+            <th>Appointment Status </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model?.Count > 0)
+        {
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item?.ScheduledDate.ToString()</td>
+                    <td>@item?.ScheduledTime.ToString()</td>
+                    <td>@item?.User?.Username</td>
+
+
+                    @*@if (item.PotentialCustomerId != null)
+                    {
+                        <td><a href="/CustomerDetail/PotentialCustomerDetailPage/@item.PotentialCustomerId">@item?.PotentialCustomer?.Name @item?.PotentialCustomer?.Surname     </a></td>
+                        <td><span class="badge badge-dark ml-2"> Potansiyel Müşteri  </span> </td>
+                    }
+                    else if (item.CustomerId != null)
+                    {
+                        <td><a href="/CustomerDetail/DetailPage/@item.CustomerId">  @item?.Customer?.Name @item?.Customer?.Surname </a></td>
+                        <td><span class="badge badge-dark ml-2">  Gerçek Müşteri   </span></td>
+                    }
+
+                    @if (item.AppointmentStatusId == AppointmentStatusCodes.Pending)
+                    {
+                        <td><span class="badge badge-warning">@item.AppointmentStatus?.Description</span></td>
+                    }
+                    else if (item.AppointmentStatusId == AppointmentStatusCodes.Negotiated)
+                    {
+                        <td><span class="badge badge-primary">@item.AppointmentStatus?.Description</span></td>
+                    }
+                    else if (item.AppointmentStatusId == AppointmentStatusCodes.Rejected)
+                    {
+                        <td><span class="badge badge-danger">@item.AppointmentStatus?.Description</span></td>
+                    }*@
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td rowspan="2">Size Ait Randevu Bulunmamaktadır</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    function ChangeAppointmentStatus(id,statusId) {
+        $.ajax({
+                type: "POST",
+                url: '@Url.Action("ChangeAppointmentStatus", "Appointment")',
+                data: {
+                    id: id,
+                    statusId: statusId
+             },
+            success: function (data) {
+                @*if (data.status==@EntityResponseStatus.Success.ToByte()) {
+                    console.log(data);
+                    AppointmentHistory();
+                 }*@
+                },
+                error: function () {
+                    toastr.success("Randevu İşlemi Gerçekleşirken bir hata oluştur ! ");
+                }
+            });
+    }
+</script>

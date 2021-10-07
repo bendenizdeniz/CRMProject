@@ -1,7 +1,5 @@
 ﻿using Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Business.Interfaces
 {
@@ -12,6 +10,8 @@ namespace Business.Interfaces
         List<Customer> GetAllCustomer();
 
         Customer GetCustomerById(int id);
+
+        Customer GetCustomerByName(string name);
 
         Customer UpdateCustomer(Customer customer);
 
