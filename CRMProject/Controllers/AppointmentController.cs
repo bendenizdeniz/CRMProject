@@ -55,10 +55,14 @@ namespace CRMProject.Controllers
         {
             Appointment appointment = new();
             appointment.ScheduledDate = appointmentDate;
-            appointment.ScheduledTime =appointmentTime;
             appointment.CustomerId = (customerService.GetCustomerByName(appointmentCustomerName)).Id;
             appointment.UserId = appointmentPersonel;
             appointment.Status = 0;
+
+            string partOfDay = appointmentTime.Substring(5);
+            string time = appointmentTime.Substring(0,5);
+            appointment.ScheduledTime = TimeSpan.Parse(time);
+            appointment.PartOfDay = partOfDay;
             appointmentService.CreateAppointment(appointment);
             return true;
         }

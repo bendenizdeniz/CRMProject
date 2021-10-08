@@ -30,15 +30,11 @@ namespace Entity
             {
                 entity.Property(e => e.ActualDate).HasColumnType("date");
 
-                entity.Property(e => e.ActualTime)
-                    .HasMaxLength(25)
+                entity.Property(e => e.PartOfDay)
+                    .HasMaxLength(2)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ScheduledDate).HasColumnType("date");
-
-                entity.Property(e => e.ScheduledTime)
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Appointment)

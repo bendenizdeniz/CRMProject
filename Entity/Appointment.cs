@@ -13,9 +13,10 @@ namespace Entity
         public int? UserId { get; set; }
         public DateTime? ScheduledDate { get; set; }
         public DateTime? ActualDate { get; set; }
-        public string ScheduledTime { get; set; }
-        public string ActualTime { get; set; }
+        public TimeSpan? ScheduledTime { get; set; }
+        public TimeSpan? ActualTime { get; set; }
         public byte? Status { get; set; }
+        public string PartOfDay { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual User User { get; set; }
