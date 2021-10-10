@@ -1,4 +1,5 @@
 ﻿using Entity;
+using System;
 
 namespace Business.Interfaces
 {
@@ -7,5 +8,7 @@ namespace Business.Interfaces
         Appointment GetAppointment(Appointment appointment);
 
         void CreateAppointment(Appointment appointment);
+
+        Appointment GetAppointmentByUser(byte statusId = 0, DateTime? time = null);
     }
 }

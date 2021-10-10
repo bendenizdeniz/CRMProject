@@ -1,0 +1,35 @@
+﻿@model Appointment
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Customer </th>
+            <th>Appointment Start Date</th>
+            <th>Appointment Start Time</th>
+            <th>Part Of Day</th>
+            <th>User </th>
+            <th>Appointment Status </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            <tr>
+                <td>@Model.Customer.FirstName</td>
+                <td>@String.Format("{0:dddd, dd MMM yyyy}", Model.ScheduledDate)</td>
+                @*<td>@Model.ScheduledDate.ToString()</td>*@
+
+                <td>@Model.ScheduledTime</td>
+                <td>@Model.PartOfDay</td>
+                <td>@Model.User.Username</td>
+                <td>@Model.Status</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td rowspan="2">Size Ait Randevu Bulunmamaktadır</td>
+            </tr>
+        }
+    </tbody>
+</table>

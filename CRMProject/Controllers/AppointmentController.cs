@@ -33,11 +33,10 @@ namespace CRMProject.Controllers
             return View();
         }
 
-        public bool AppointmentListByUserViewComponent(byte statusId = 0, DateTime? time = null)
+        public IActionResult AppointmentListByUserViewComponent(DateTime? time = null, byte statusId = 0)
         {
-            //List<Appointment> model = _appoinment.AppointmentListByUser(statusId, time);
-            //return ViewComponent("AppointmentListByUser", model);
-            return true;
+            Appointment appointmentModel = appointmentService.GetAppointmentByUser(statusId, time);
+            return ViewComponent("AppointmentByUser", appointmentModel);
         }
 
         [HttpGet]
@@ -53,14 +52,25 @@ namespace CRMProject.Controllers
         [HttpPost]
         public bool CreateAppointment(string appointmentCustomerName, DateTime appointmentDate, string appointmentTime, int appointmentPersonel)
         {
+            string partOfDay = "", time = "";
+
             Appointment appointment = new();
             appointment.ScheduledDate = appointmentDate;
             appointment.CustomerId = (customerService.GetCustomerByName(appointmentCustomerName)).Id;
             appointment.UserId = appointmentPersonel;
             appointment.Status = 0;
 
-            string partOfDay = appointmentTime.Substring(5);
-            string time = appointmentTime.Substring(0,5);
+            if (appointmentTime.Length == 7)
+            {
+                partOfDay = appointmentTime.Substring(5);
+                time = appointmentTime.Substring(0, 5);
+            }
+            if (appointmentTime.Length == 8)
+            {
+                partOfDay = appointmentTime.Substring(6);
+                time = appointmentTime.Substring(0, 6);
+            }
+
             appointment.ScheduledTime = TimeSpan.Parse(time);
             appointment.PartOfDay = partOfDay;
             appointmentService.CreateAppointment(appointment);

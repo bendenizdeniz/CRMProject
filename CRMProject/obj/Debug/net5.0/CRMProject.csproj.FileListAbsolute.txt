@@ -1334,5 +1334,5 @@ C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\ref\CRMProject.dll
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\CRMProject.pdb
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\CRMProject.genruntimeconfig.cache
-C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\Components\Appointment\Default.cshtml.g.cs
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\Razor\Views\Appointment\CreateAppointment.cshtml.g.cs
+C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\Components\AppointmentByUser\Default.cshtml.g.cs
