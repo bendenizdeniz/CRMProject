@@ -21,5 +21,6 @@ namespace DAL.Interfaces
         User GetUserByName(string userName);
 
         User UserLogin(User user);
+        User UserRegister(User user);
     }
 }

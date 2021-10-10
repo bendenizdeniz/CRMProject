@@ -34,3 +34,15 @@ C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\Entity\obj\Debug\net5
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\Entity\obj\Debug\net5.0\Entity.dll
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\Entity\obj\Debug\net5.0\ref\Entity.dll
 C:\Users\deniz\source\repos\CRMProjectClone\CRMProject.sln\Entity\obj\Debug\net5.0\Entity.pdb
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\bin\Debug\net5.0\Entity.deps.json
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\bin\Debug\net5.0\Entity.dll
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\bin\Debug\net5.0\ref\Entity.dll
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\bin\Debug\net5.0\Entity.pdb
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.csproj.AssemblyReference.cache
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.AssemblyInfoInputs.cache
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.AssemblyInfo.cs
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.dll
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\ref\Entity.dll
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\Entity\obj\Debug\net5.0\Entity.pdb

@@ -20,5 +20,6 @@ namespace Business.Interfaces
         User GetUserByName(string userName);
 
         User UserLogin(User user);
+        User UserRegister(User user);
     }
 }
