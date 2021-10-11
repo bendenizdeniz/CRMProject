@@ -1772,7 +1772,6 @@ C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debu
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Login\VerifyErrorPartial.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Login\VerifyPassword.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Login\VerifyPasswordPartial.cshtml.g.cs
-C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\Components\Appointment\Default.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -1788,3 +1787,4 @@ C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debu
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\CRMProject.genruntimeconfig.cache
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Register\RegisterErrorPartial.cshtml.g.cs
 C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Register\UserRegister.cshtml.g.cs
+C:\Users\KaanB\Source\Repos\GitHubCrmProjectClone\CRMProject\CRMProject\obj\Debug\net5.0\Razor\Views\Shared\Components\AppointmentByUser\Default.cshtml.g.cs
