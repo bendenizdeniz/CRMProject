@@ -27,5 +27,10 @@ namespace Business.EntityBusiness
         {
             return appointmentRepository.GetAppointment(appointment);
         }
+
+        public Appointment GetAppointmentByUser(byte statusId = 0, DateTime? time = null)
+        {
+            return appointmentRepository.GetAppointmentByUser(statusId, time);
+        }
     }
 }

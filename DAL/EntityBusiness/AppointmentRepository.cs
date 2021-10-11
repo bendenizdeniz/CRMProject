@@ -27,5 +27,10 @@ namespace DAL.EntityBusiness
         {
             return context.Appointment.Find(appointment);
         }
+
+        public Appointment GetAppointmentByUser(byte statusId = 0, DateTime? time = null)
+        {
+            return context.Appointment.FirstOrDefault(x=>x.Status == statusId && x.ScheduledDate == time);
+        }
     }
 }
