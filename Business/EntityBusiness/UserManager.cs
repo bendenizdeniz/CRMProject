@@ -52,5 +52,9 @@ namespace Business.EntityBusiness
         {
             return userRepository.UserLogin(user);
         }
+        public User UserRegister(User user)
+        {
+            return userRepository.UserRegister(user);
+        }
     }
 }

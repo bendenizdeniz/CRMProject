@@ -74,5 +74,17 @@ namespace DAL.EntityBusiness
 
         }
 
+        public User UserRegister(User user)
+        {
+            User _user = context.User.FirstOrDefault(x => x.Username == user.Username || x.Email == user.Email);
+            if (_user == null)
+            {
+                context.User.Add(user);
+                context.SaveChanges();
+                return new User { Username = user.Username, Password = user.Password, Email = user.Email };
+            }
+            return null;
+        }
+
     }
 }
