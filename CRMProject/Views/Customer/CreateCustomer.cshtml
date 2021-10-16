@@ -1,0 +1,141 @@
+﻿@model CustomerUserModel
+@{
+    ViewData["Title"] = "CreateCustomer";
+    ViewData["SessionUser"] = Model.User.Username;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-119386393-1');
+    </script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div style="position: relative; left: -9rem; bottom: 2rem;">
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4" style="margin-bottom: 2rem;">Create Customer</h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">Name</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input class="form-control" type="text" id="customerName" placeholder="Customer Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">Email</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input class="form-control" id="customerEmail" placeholder="Customer Email" type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">Job Title</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input type="text" class="form-control" id="customerJobTitle" placeholder="Customer Job Title">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">City</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input type="text" class="form-control" id="customerCity" placeholder="Customer City">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">Company Name</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input type="text" class="form-control" id="customerCompany" placeholder="Customer Company">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-12 col-md-2 col-form-label">Personel</label>
+                    <div class="col-sm-12 col-md-10">
+                        <select class="custom-select col-12" id="customerPersonel">
+                            <option selected disabled hidden>Please Select A Personel</option>
+                            @foreach (var user in Model.UserList)
+                            {
+                                <option value="@user.Id">@user.Username</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+
+                <button type="submit"
+                        style="background-color: 1B00FF; margin-top:2rem;"
+                        class="btn btn-info"
+                        onclick=CreateCustomer()>
+                    Create
+                </button>
+
+                <!-- js -->
+                <script src="vendors/scripts/core.js"></script>
+                <script src="vendors/scripts/script.min.js"></script>
+                <script src="vendors/scripts/process.js"></script>
+                <script src="vendors/scripts/layout-settings.js"></script>
+
+</body>
+</html>
+
+<script>
+    function CreateCustomer() {
+        var FirstName = $("#customerName").val();
+        var Email = $("#customerEmail").val();
+        var JobTitle = $("#customerJobTitle").val();
+        var City = $("#customerCity").val();
+        var CompanyName = $("#customerCompany").val();
+        var UserId = $("#customerPersonel").val();
+        $.ajax({
+            url: '@Url.Action("CreateCustomer", "Customer")',
+            data: {
+                FirstName,
+                Email,
+                JobTitle,
+                City,
+                CompanyName,
+                UserId
+            },
+            method: "POST",
+            success: (response) => {
+                if (response==true) {
+                    window.location.href = "/Home/Home";
+                }
+            },
+            error: (xhr) => {
+                console.log(xhr);
+            }
+        })
+    }
+</script>
+
+

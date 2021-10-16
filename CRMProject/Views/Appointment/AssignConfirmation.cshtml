@@ -1,0 +1,117 @@
+﻿@model AppointmentUserModel
+@{
+    ViewData["Title"] = "AssignConfirmation";
+    ViewData["SessionUser"] = Model.user.Username;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8">
+    <title>Assign Confirmation</title>
+
+    <!-- Site favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-119386393-1');
+    </script>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="min-height-200px" style="margin-left: -16rem">
+            <div class="container pd-0">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="title">
+                                <h4 class="text-blue h4" style="margin-bottom: 2rem;">Appointment List</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-directory-list">
+                    <ul class="row">
+                        @foreach (var appointment in Model.appointmentList)
+                        {
+                            <li class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div class="contact-directory-box">
+                                    <div class="contact-dire-info text-center">
+                                        <div class="contact-avatar">
+                                            <span style="padding-top: 1.5rem;">
+                                                <img src="/deskapp2-master/src/images/appointment.png" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="contact-name">
+                                            <h4>@appointment.Customer.FirstName</h4>
+                                            <p>@appointment.Customer.JobTitle</p>
+                                            <div class="work text-success"><i class="ion-android-person"></i> @appointment.Customer.CompanyName</div>
+                                            <div>@appointment.Customer.City</div>
+                                        </div>
+                                        <div class="contact-skill">
+                                            <span class="badge badge-pill">@appointment.User.Username</span>
+                                        </div>
+                                        <div class="profile-sort-desc">
+                                            @String.Format("{0:dddd, dd MMM yyyy}", appointment.ScheduledDate)
+                                        </div>
+                                        <div class="profile-sort-desc">
+                                            @String.Format("{0:hh\\:mm}", @appointment.ScheduledTime) @appointment.PartOfDay
+                                        </div>
+                                        @if (@appointment.Status == 0)
+                                        {
+                                            <div class="profile-sort-desc">Waiting</div>
+                                        }
+                                        @if (@appointment.Status == 1)
+                                        {
+                                            <div class="profile-sort-desc">Discussed</div>
+                                        }
+                                        @if (@appointment.Status == 2)
+                                        {
+                                            <div class="profile-sort-desc">Cancelled</div>
+                                        }
+
+                                    </div>
+                                    <div class="view-contact">
+                                        <a href="#">View Profile</a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-wrap pd-20 mb-20 card-box" style="left: -6.7rem;">
+            DB CRM - &copy; All Rights Reserved.
+        </div>
+
+    </div>
+    <!-- js -->
+    <script src="vendors/scripts/core.js"></script>
+    <script src="vendors/scripts/script.min.js"></script>
+    <script src="vendors/scripts/process.js"></script>
+    <script src="vendors/scripts/layout-settings.js"></script>
+</body>
+</html>
+

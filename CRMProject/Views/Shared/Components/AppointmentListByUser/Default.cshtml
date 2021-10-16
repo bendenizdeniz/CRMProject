@@ -1,0 +1,54 @@
+﻿@model List<Appointment>
+
+@if (Model is not null)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Customer </th>
+                <th>Appointment Start Date</th>
+                <th>Appointment Start Time</th>
+                <th>Part Of Day</th>
+                <th>User </th>
+                <th>Appointment Status </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Customer.FirstName</td>
+                    <td>@String.Format("{0:dddd, dd MMM yyyy}", item.ScheduledDate)</td>
+                    @*<td>@Model.ScheduledDate.ToString()</td>*@
+
+                    <td>@String.Format("{0:hh\\:mm}", item.ScheduledTime)</td>
+                    <td>@item.PartOfDay</td>
+                    <td>@item.User.Username</td>
+                    @if (item.Status == 0)
+                    {
+                        <td>Waiting</td>
+                    }
+                    @if (item.Status == 1)
+                    {
+                        <td>Discussed</td>
+                    }
+                    @if (item.Status == 2)
+                    {
+                        <td>Cancelled</td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
+@if (Model is null)
+{
+    <div>
+        <h4 class="text-blue h4" style="margin-bottom: 2rem; color:black !important;">
+            You Dont Have Any Appointment On Selected Day
+        </h4>
+    </div>
+}
