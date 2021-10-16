@@ -23,6 +23,7 @@ namespace CRMProject.ViewComponents
 
         public IViewComponentResult Invoke(Appointment model)
         {
+            
             model.Customer = customerService.GetCustomerById((int)model.CustomerId);
             model.User = userService.GetUserById((int)model.UserId);
             return View(model: model);
